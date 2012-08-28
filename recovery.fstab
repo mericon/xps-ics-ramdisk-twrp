@@ -1,0 +1,7 @@
+# mount point	fstype		device			[device2]   fstype2
+
+/boot		emmc		/dev/block/mmcblk0p3 noatime, commit=600
+/system		ext4		/dev/block/mmcblk0p12 rw,noatime, commit=600
+/cache		ext4		/dev/block/mmcblk0p13 rw,noatime, commit=600
+/data		ext4		/dev/block/mmcblk0p14 rw,noatime, commit=600
+/sdcard		vfat		/dev/block/mmcblk0p15 rw,noatime, commit=600
