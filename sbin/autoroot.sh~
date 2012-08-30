@@ -53,7 +53,7 @@ chmod 0755 /system/xbin/busybox
 
 # [DONE] placing flag
 echo "[DONE] placing flag" >> /data/local/tmp/autorootlog.txt
-touch /system/autorooted
+
 
 # [DONE] all done exiting
 echo "[DONE] all done exiting" >> /data/local/tmp/autorootlog.txt 
