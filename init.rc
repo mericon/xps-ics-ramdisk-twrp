@@ -3,10 +3,10 @@ on early-init
     write /proc/1/oom_adj -16
 
     start ueventd
-    start bootrec
+
 # create mountpoints
     mkdir /mnt 0775 root system
-
+	
 on init
 
 sysclktz 0
@@ -342,15 +342,8 @@ on property:persist.sys.usb.config=*
 #Mericon: Tweakes
     start tweak
 
-#Mericon: Wlan
-    start wlanmod
-
 ## Daemon processes to be run by init.
 ##
-
-service recovery /sbin/bootrec
-	user root
-	oneshot
 
 service recovery /sbin/recovery
 	user root
@@ -389,12 +382,6 @@ service autoroot /sbin/autoroot.sh
 
 # Mericon: Tweaks service
 service tweak /sbin/tweak.sh
-    user root
-    oneshot
-    disabled
-
-# Mericon: wlan service
-service wlanmod /sbin/wlan.sh
     user root
     oneshot
     disabled

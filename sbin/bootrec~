@@ -44,21 +44,21 @@ rm /cache/recovery/enterrecovery
   echo 1 > /sys/class/android_usb/android0/enable
 	stop adbd
 	stop tad
-# thread for restarting recovery
-#/sbin/restartrecovery 
 mount -o remount,rw rootfs /
 # shifting to "umount -l /partition" to avoid mounting issues in recovery
-umount -l /system
-umount -l /data
-umount -l /cache
-umount -l /sdcard
-umount -l /mnt/sdcard
+umount /system
+umount /data/idd
+umount /data
+umount /cache
+umount /sdcard
+umount /mnt/sdcard
 rm -r /sdcard
 rm -r /not/sdcard
 mkdir /sdcard
 mkdir /tmp
 rm -r /etc
 mkdir /etc
+
 
 cp /mke2fs.conf /etc/mke2fs.conf
 cp /recovery.fstab /etc/recovery.fstab
@@ -70,6 +70,6 @@ echo 1 > /sys/devices/virtual/usb_composite/usb_mass_storage/enable
 /sbin/recovery &
 /sbin/adbd_rec recovery 
 fi
-#start tad
+
 #continue booting
 /system/bin/chargemon

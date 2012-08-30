@@ -46,11 +46,12 @@ rm /cache/recovery/enterrecovery
 	stop tad
 mount -o remount,rw rootfs /
 # shifting to "umount -l /partition" to avoid mounting issues in recovery
-umount -l /system
-umount -l /data
-umount -l /cache
-umount -l /sdcard
-umount -l /mnt/sdcard
+umount /system
+umount /data/idd
+umount /data
+umount /cache
+umount /sdcard
+umount /mnt/sdcard
 rm -r /sdcard
 rm -r /not/sdcard
 mkdir /sdcard
@@ -58,6 +59,7 @@ mkdir /tmp
 rm -r /etc
 mkdir /etc
 
+export LD_LIBRARY_PATH=:/sbin
 cp /mke2fs.conf /etc/mke2fs.conf
 cp /recovery.fstab /etc/recovery.fstab
 mount /dev/block/mmcblk0p15 /sdcard
