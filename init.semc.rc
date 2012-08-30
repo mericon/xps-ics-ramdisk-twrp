@@ -23,14 +23,14 @@ on early-boot
     # Start the offline charging (This blocks booting further in some cases)
  # FOTA must be started after partitions are mounted
     # and property service is initialized
-    exec /sbin/fota-ua c
+   # exec /sbin/fota-ua c
 
-    stop tad    
+   # stop tad    
 
     # Start the offline charging (This blocks booting further in some cases)
     exec /sbin/bootrec    
     
-    start tad
+    #start tad
 
     # Make sure the crashsms/crashes are writable by crashmonitor
     
